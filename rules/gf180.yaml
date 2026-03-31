@@ -1,0 +1,28 @@
+name: GF180_FEOL_Baseline
+version: 1.0
+units: um
+
+rules:
+  - rule_id: PL.1
+    description: "Minimum width of poly gate/wire"
+    layer1: poly
+    check_type: min_width
+    value: 0.18
+
+  - rule_id: DF.2
+    description: "Minimum spacing between active (diffusion) regions"
+    layer1: active
+    check_type: min_spacing
+    value: 0.25
+
+  - rule_id: PL.3
+    description: "Minimum poly extension beyond active"
+    layer1: poly
+    layer2: active
+    check_type: min_extension
+    value: 0.13
+  - rule_id: LI.1
+    description: "Minimum width of local interconnect (li1)"
+    layer1: li1
+    check_type: min_width
+    value: 0.17
