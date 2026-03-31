@@ -46,7 +46,10 @@ class DRCVisualizer:
         plt.xlabel("Micrometers (um)")
         plt.ylabel("Micrometers (um)")
         plt.grid(True, linestyle=':', alpha=0.6)
-        
+        # Add a text box with the Agent's top 3 fixes
+        if self.violations:
+            fix_text = "🤖 Agent Fix Suggestions:\n" + "\n".join([v['fix'] for v in self.violations[:3]])
+            plt.gcf().text(0.15, 0.02, fix_text, fontsize=9, bbox=dict(facecolor='white', alpha=0.8))
         # 4. Save the file
         plt.savefig(filename, dpi=300, bbox_inches='tight')
         print(f"Visualization saved to {filename}")
